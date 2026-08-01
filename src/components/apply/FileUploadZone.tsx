@@ -10,6 +10,8 @@ interface FileUploadZoneProps {
   required: boolean;
   hint?: string;
   accept?: string;
+  acceptedMimeTypes?: string[];
+  acceptAttr?: string;
   uploadedFile?: UploadedFile;
   onFileSelect: (file: File, preview?: string) => void;
   onFileRemove: () => void;
@@ -24,6 +26,8 @@ export default function FileUploadZone({
   required,
   hint,
   accept,
+  acceptedMimeTypes,
+  acceptAttr,
   uploadedFile,
   onFileSelect,
   onFileRemove,
@@ -35,8 +39,9 @@ export default function FileUploadZone({
 
   function validateAndSelect(file: File) {
     setLocalError(null);
-    if (!ALLOWED_TYPES.includes(file.type)) {
-      setLocalError('Only PDF, PNG, JPG, and JPEG files are allowed.');
+    const validMimes = acceptedMimeTypes || ALLOWED_TYPES;
+    if (!validMimes.includes(file.type)) {
+      setLocalError(`Invalid file type. Accepted: ${accept || 'PDF, PNG, JPG'}`);
       return;
     }
     if (file.size > MAX_SIZE) {
@@ -120,7 +125,7 @@ export default function FileUploadZone({
             <input
               ref={inputRef}
               type="file"
-              accept=".pdf,.png,.jpg,.jpeg"
+              accept={acceptAttr || ".pdf,.png,.jpg,.jpeg"}
               className="hidden"
               onChange={handleInputChange}
             />
@@ -134,7 +139,9 @@ export default function FileUploadZone({
                 <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
                   {isDragging ? 'Drop file here' : 'Drag & drop or click to upload'}
                 </p>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">PDF, PNG, JPG — max 5 MB</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
+                  {accept || 'PDF, PNG, JPG'} — max 5 MB
+                </p>
               </div>
             </div>
           </motion.div>

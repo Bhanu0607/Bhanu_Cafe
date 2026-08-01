@@ -220,3 +220,34 @@ body {
     padding: 7rem 2rem;
   }
 }
+
+
+.animated-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #06b6d4,
+    #3b82f6,
+    #8b5cf6,
+    #2563eb
+  );
+
+  background-size: 300% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientText 6s linear infinite;
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 300% center;
+  }
+}

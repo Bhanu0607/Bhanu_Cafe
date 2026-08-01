@@ -1,6 +1,7 @@
 import { ServiceApplication } from '@/types/application';
 
 export const serviceApplications: ServiceApplication[] = [
+  // ─── GOVERNMENT SERVICES ────────────────────────────────────
   {
     slug: 'pan-card',
     name: 'PAN Card',
@@ -22,6 +23,10 @@ export const serviceApplications: ServiceApplication[] = [
       { label: 'Passport Size Photo', required: true, hint: 'White background, recent photo', accept: 'JPG, PNG' },
       { label: 'Signature', required: true, hint: 'On plain white paper, click clear photo', accept: 'JPG, PNG' },
       { label: 'Date of Birth Proof', required: false, hint: '10th Marksheet or Birth Certificate (if not on Aadhaar)', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      { id: 'fathersName', label: "Father's Full Name", type: 'text', required: true, placeholder: "Enter father's full name as per official records" },
+      { id: 'dob', label: 'Date of Birth', type: 'date', required: true },
     ],
   },
   {
@@ -47,6 +52,18 @@ export const serviceApplications: ServiceApplication[] = [
       { label: 'Date of Birth Proof', required: true, hint: '10th Marksheet or Birth Certificate', accept: 'PDF, JPG, PNG' },
       { label: 'Old Passport', required: false, hint: 'Required for renewal only — first & last page', accept: 'PDF, JPG, PNG' },
     ],
+    additionalFields: [
+      { id: 'fathersName', label: "Father's Full Name", type: 'text', required: true, placeholder: "Enter father's full name as per official records" },
+      { id: 'mothersName', label: "Mother's Full Name", type: 'text', required: true, placeholder: "Enter mother's full name as per official records" },
+      { id: 'dob', label: 'Date of Birth', type: 'date', required: true },
+      {
+        id: 'passportType',
+        label: 'Passport Service Type',
+        type: 'select',
+        required: true,
+        options: ['Fresh Passport', 'Renewal', 'Tatkal (Urgent)', 'Lost/Damaged Passport'],
+      },
+    ],
   },
   {
     slug: 'aadhaar-update',
@@ -68,6 +85,8 @@ export const serviceApplications: ServiceApplication[] = [
       { label: 'Identity Proof', required: false, hint: 'PAN / Voter ID / Driving License', accept: 'PDF, JPG, PNG' },
     ],
     additionalFields: [
+      { id: 'fathersName', label: "Father's Full Name", type: 'text', required: true, placeholder: "Enter father's full name" },
+      { id: 'dob', label: 'Date of Birth', type: 'date', required: true },
       {
         id: 'updateType',
         label: 'What do you want to update?',
@@ -81,13 +100,13 @@ export const serviceApplications: ServiceApplication[] = [
     slug: 'driving-license',
     name: 'Driving License',
     categoryId: 'government',
-    description: 'Apply for a learner\'s license, permanent DL, or renewal through our expert assistance.',
-    longDescription: 'We assist with all types of driving license applications — Learner\'s License (LL), Permanent Driving License (DL), and DL Renewal. Our team will fill the Sarathi portal forms, verify documents, and guide you through the process.',
+    description: "Apply for a learner's license, permanent DL, or renewal through our expert assistance.",
+    longDescription: "We assist with all types of driving license applications — Learner's License (LL), Permanent Driving License (DL), and DL Renewal. Our team will fill the Sarathi portal forms, verify documents, and guide you through the process.",
     price: '₹249',
     processingTime: '30–45 working days',
     instructions: [
       'Select the type of license you need in the message box.',
-      'For Permanent DL, upload your existing Learner\'s License.',
+      "For Permanent DL, upload your existing Learner's License.",
       'Upload Aadhaar Card, age proof, and passport photos.',
       'Government DL fees are paid separately at the RTO.',
       'We will schedule your driving test slot and guide you.',
@@ -101,6 +120,8 @@ export const serviceApplications: ServiceApplication[] = [
       { label: 'Medical Certificate (Form 1A)', required: false, hint: 'From a registered medical practitioner', accept: 'PDF, JPG, PNG' },
     ],
     additionalFields: [
+      { id: 'fathersName', label: "Father's / Spouse's Full Name", type: 'text', required: true, placeholder: "Enter father's or spouse's full name" },
+      { id: 'dob', label: 'Date of Birth', type: 'date', required: true },
       {
         id: 'licenseType',
         label: 'License Type',
@@ -122,7 +143,7 @@ export const serviceApplications: ServiceApplication[] = [
     name: 'Voter ID',
     categoryId: 'government',
     description: 'New voter ID registration and corrections to existing voter ID card.',
-    longDescription: 'Your Voter ID (EPIC Card) is a crucial identity document and proof of citizenship for electoral purposes. We assist with fresh voter registration (Form 6), shifting of registration (Form 8A), and corrections (Form 8) through the official Voters\' Service Portal.',
+    longDescription: "Your Voter ID (EPIC Card) is a crucial identity document and proof of citizenship for electoral purposes. We assist with fresh voter registration (Form 6), shifting of registration (Form 8A), and corrections (Form 8) through the official Voters' Service Portal.",
     price: '₹149',
     processingTime: '30–60 working days',
     instructions: [
@@ -138,6 +159,8 @@ export const serviceApplications: ServiceApplication[] = [
       { label: 'Address Proof', required: true, hint: 'Utility bill / Rent agreement / Bank passbook', accept: 'PDF, JPG, PNG' },
     ],
     additionalFields: [
+      { id: 'fathersName', label: "Father's / Husband's Full Name", type: 'text', required: true, placeholder: "Enter father's or husband's full name" },
+      { id: 'dob', label: 'Date of Birth', type: 'date', required: true },
       {
         id: 'voterService',
         label: 'Type of Service',
@@ -156,30 +179,22 @@ export const serviceApplications: ServiceApplication[] = [
     price: '₹199',
     processingTime: '7–15 working days',
     instructions: [
-      'For newborns: bring the hospital discharge slip and parents\' Aadhaar.',
+      "For newborns: bring the hospital discharge slip and parents' Aadhaar.",
       'For older births (delayed registration): additional affidavit may be required.',
       'Upload all available documents and we will guide you on missing ones.',
     ],
     requiredDocuments: [
       { label: 'Hospital Birth Record / Discharge Slip', required: false, hint: 'For newborn registration', accept: 'PDF, JPG, PNG' },
-      { label: 'Father\'s Aadhaar Card', required: true, hint: 'Clear photo or scan', accept: 'PDF, JPG, PNG' },
-      { label: 'Mother\'s Aadhaar Card', required: true, hint: 'Clear photo or scan', accept: 'PDF, JPG, PNG' },
-      { label: 'Marriage Certificate', required: false, hint: 'If parents\' marriage is registered', accept: 'PDF, JPG, PNG' },
+      { label: "Father's Aadhaar Card", required: true, hint: 'Clear photo or scan', accept: 'PDF, JPG, PNG' },
+      { label: "Mother's Aadhaar Card", required: true, hint: 'Clear photo or scan', accept: 'PDF, JPG, PNG' },
+      { label: 'Marriage Certificate', required: false, hint: "If parents' marriage is registered", accept: 'PDF, JPG, PNG' },
     ],
     additionalFields: [
-      {
-        id: 'birthDate',
-        label: 'Date of Birth of Child',
-        type: 'date',
-        required: true,
-      },
-      {
-        id: 'childName',
-        label: 'Full Name of Child',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter the child\'s full name',
-      },
+      { id: 'childName', label: 'Full Name of Child', type: 'text', required: true, placeholder: "Enter the child's full name" },
+      { id: 'birthDate', label: 'Date of Birth of Child', type: 'date', required: true },
+      { id: 'fathersName', label: "Father's Full Name", type: 'text', required: true, placeholder: "Enter father's full name" },
+      { id: 'mothersName', label: "Mother's Full Name", type: 'text', required: true, placeholder: "Enter mother's full name" },
+      { id: 'birthPlace', label: 'Place of Birth (Hospital / Village)', type: 'text', required: true, placeholder: 'e.g. Civil Hospital, Jaipur' },
     ],
   },
   {
@@ -201,13 +216,9 @@ export const serviceApplications: ServiceApplication[] = [
       { label: 'Self-Declaration / Affidavit', required: false, hint: 'Income declaration if required in your district', accept: 'PDF, JPG, PNG' },
     ],
     additionalFields: [
-      {
-        id: 'annualIncome',
-        label: 'Annual Family Income (in ₹)',
-        type: 'text',
-        required: true,
-        placeholder: 'e.g. 150000',
-      },
+      { id: 'fathersName', label: "Father's Full Name", type: 'text', required: true, placeholder: "Enter father's full name" },
+      { id: 'dob', label: 'Date of Birth', type: 'date', required: true },
+      { id: 'annualIncome', label: 'Annual Family Income (in ₹)', type: 'text', required: true, placeholder: 'e.g. 150000' },
       {
         id: 'purpose',
         label: 'Purpose of Income Certificate',
@@ -217,6 +228,8 @@ export const serviceApplications: ServiceApplication[] = [
       },
     ],
   },
+
+  // ─── TRAVEL SERVICES ────────────────────────────────────────
   {
     slug: 'railway-ticket',
     name: 'Railway Ticket Booking',
@@ -275,6 +288,8 @@ export const serviceApplications: ServiceApplication[] = [
       { id: 'travelClass', label: 'Cabin Class', type: 'select', required: true, options: ['Economy', 'Business', 'First Class'] },
     ],
   },
+
+  // ─── DIGITAL SERVICES ────────────────────────────────────────
   {
     slug: 'resume-creation',
     name: 'Resume Creation',
@@ -294,19 +309,203 @@ export const serviceApplications: ServiceApplication[] = [
       { label: 'Educational Certificates', required: false, hint: 'For accurate qualification details', accept: 'PDF, JPG, PNG' },
     ],
     additionalFields: [
-      {
-        id: 'targetRole',
-        label: 'Target Job Role',
-        type: 'text',
-        required: true,
-        placeholder: 'e.g. Software Developer, Bank PO, Teacher',
-      },
+      { id: 'targetRole', label: 'Target Job Role', type: 'text', required: true, placeholder: 'e.g. Software Developer, Bank PO, Teacher' },
       {
         id: 'experienceLevel',
         label: 'Experience Level',
         type: 'select',
         required: true,
         options: ['Fresher (0 experience)', '1–3 years', '3–5 years', '5–10 years', '10+ years'],
+      },
+    ],
+  },
+
+  // ─── PRINTING SERVICES (with Home Delivery) ─────────────────
+  {
+    slug: 'bw-printing',
+    name: 'Black & White Printing',
+    categoryId: 'printing',
+    description: 'High-quality B&W printing with same-day home delivery. Just upload your file and relax.',
+    longDescription: 'Get your documents printed in crisp black & white without stepping out. Upload your file, specify the number of copies and any special instructions, and we will deliver the printouts right to your doorstep the same day.',
+    price: '₹2/page + delivery',
+    processingTime: 'Same-day delivery',
+    instructions: [
+      'Upload the file(s) you want printed (PDF or image).',
+      'Specify number of copies and any print preferences.',
+      'Provide your complete delivery address.',
+      'We will call to confirm before dispatching.',
+      'Payment collected at delivery (Cash / UPI).',
+    ],
+    requiredDocuments: [
+      { label: 'File to Print', required: true, hint: 'Upload your document or image to be printed', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      { id: 'copies', label: 'Number of Copies', type: 'select', required: true, options: ['1', '2', '3', '4', '5', '10', '20', '50', 'More (specify in message)'] },
+      { id: 'paperSize', label: 'Paper Size', type: 'select', required: true, options: ['A4 (Standard)', 'A3', 'Legal', 'Letter'] },
+      { id: 'printSide', label: 'Print Side', type: 'select', required: true, options: ['Single Side', 'Double Side (Both Sides)'] },
+      { id: 'deliveryAddress', label: 'Delivery Address', type: 'textarea', required: true, placeholder: 'Full delivery address with landmark and PIN code' },
+    ],
+  },
+  {
+    slug: 'color-printing',
+    name: 'Color Printing',
+    categoryId: 'printing',
+    description: 'Vibrant color printing for photos, presentations, and documents with same-day delivery.',
+    longDescription: 'Bring your documents to life with vivid, accurate color printing. Whether it is a photo, presentation, brochure, or assignment, we print with high-quality color accuracy. Upload your file and get it delivered same day.',
+    price: '₹10/page + delivery',
+    processingTime: 'Same-day delivery',
+    instructions: [
+      'Upload the file(s) you want printed in color.',
+      'Specify number of copies and paper preference.',
+      'Provide your complete delivery address.',
+      'Payment collected at delivery (Cash / UPI).',
+    ],
+    requiredDocuments: [
+      { label: 'File to Print', required: true, hint: 'Upload your document or image (PDF or high-res image preferred)', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      { id: 'copies', label: 'Number of Copies', type: 'select', required: true, options: ['1', '2', '3', '4', '5', '10', '20', '50', 'More (specify in message)'] },
+      { id: 'paperSize', label: 'Paper Size', type: 'select', required: true, options: ['A4 (Standard)', 'A3', 'Legal', 'Photo (4×6 inch)', 'Photo (5×7 inch)'] },
+      { id: 'printSide', label: 'Print Side', type: 'select', required: true, options: ['Single Side', 'Double Side (Both Sides)'] },
+      { id: 'deliveryAddress', label: 'Delivery Address', type: 'textarea', required: true, placeholder: 'Full delivery address with landmark and PIN code' },
+    ],
+  },
+  {
+    slug: 'spiral-binding',
+    name: 'Spiral Binding',
+    categoryId: 'printing',
+    description: 'Professional spiral binding for projects, reports, and documents with home delivery.',
+    longDescription: 'Get your projects, thesis, reports, or assignment files bound professionally with spiral binding. We use high-quality spiral rings and transparent front covers. Upload your file, or bring it in — we also offer same-day home delivery.',
+    price: '₹40/binding + delivery',
+    processingTime: 'Same-day delivery',
+    instructions: [
+      'Upload the file you want to get spiral bound, OR describe what you need.',
+      'Specify cover preference and number of copies.',
+      'Provide your delivery address.',
+      'Payment collected at delivery (Cash / UPI).',
+    ],
+    requiredDocuments: [
+      { label: 'File / Document for Binding', required: false, hint: 'Upload PDF to print + bind, or leave blank if you are bringing the physical copy', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      { id: 'copies', label: 'Number of Copies / Sets', type: 'select', required: true, options: ['1', '2', '3', '4', '5', 'More (specify in message)'] },
+      { id: 'coverType', label: 'Cover Type', type: 'select', required: true, options: ['Transparent Front + Black Back (Standard)', 'Both Transparent', 'Soft Cover', 'Hard Cover'] },
+      { id: 'printRequired', label: 'Do you need printing too?', type: 'select', required: true, options: ['Yes — Print + Bind', 'No — I will bring the physical copy'] },
+      { id: 'deliveryAddress', label: 'Delivery Address', type: 'textarea', required: true, placeholder: 'Full delivery address with landmark and PIN code' },
+    ],
+  },
+  {
+    slug: 'document-scanning',
+    name: 'Document Scanning',
+    categoryId: 'printing',
+    description: 'High-resolution document scanning to PDF or image with same-day home pickup & delivery.',
+    longDescription: 'Need your documents digitized? We offer high-resolution scanning to PDF or JPG format. For home delivery service, we will pick up your physical documents, scan them professionally, and return the originals along with the digital copies via email or WhatsApp.',
+    price: '₹5/page + delivery',
+    processingTime: 'Same-day',
+    instructions: [
+      'Fill the form with your details and document description.',
+      'We will pick up your physical documents from your address.',
+      'Scanned files will be delivered via email and originals returned same day.',
+      'Payment collected at pickup (Cash / UPI).',
+    ],
+    requiredDocuments: [
+      { label: 'Sample Document (optional)', required: false, hint: 'Upload a photo of the document if you want to show us what needs scanning', accept: 'JPG, PNG' },
+    ],
+    additionalFields: [
+      { id: 'documentCount', label: 'Approximate Number of Pages', type: 'select', required: true, options: ['1–5 pages', '6–10 pages', '11–20 pages', '21–50 pages', '50+ pages'] },
+      { id: 'outputFormat', label: 'Output Format', type: 'select', required: true, options: ['PDF (Single file)', 'PDF (Separate files per document)', 'JPG / PNG Images', 'Both PDF and Images'] },
+      { id: 'deliveryMode', label: 'How will you share documents?', type: 'select', required: true, options: ['Home Pickup (we collect from you)', 'I will visit the shop'] },
+      { id: 'pickupAddress', label: 'Pickup / Return Address', type: 'textarea', required: true, placeholder: 'Full address with landmark and PIN code' },
+    ],
+  },
+  {
+    slug: 'passport-photos',
+    name: 'Passport Size Photos',
+    categoryId: 'printing',
+    description: 'Instant passport and visa size photographs with same-day home delivery.',
+    longDescription: 'Get professional passport, visa, and stamp-size photographs printed on high-quality photo paper. We accept your existing photo or you can visit us for a fresh click. Delivered same day with home delivery option.',
+    price: '₹30 for 6 photos + delivery',
+    processingTime: 'Same-day delivery',
+    instructions: [
+      'Upload a clear, recent photo (white background preferred).',
+      'Specify the size and number of photos needed.',
+      'We will resize, print, and deliver to your doorstep.',
+      'Payment collected at delivery (Cash / UPI).',
+    ],
+    requiredDocuments: [
+      { label: 'Your Photograph', required: true, hint: 'Clear face, white/light background, recent — front-facing', accept: 'JPG, PNG' },
+    ],
+    additionalFields: [
+      {
+        id: 'photoSize',
+        label: 'Photo Size',
+        type: 'select',
+        required: true,
+        options: ['Passport Size (35×45 mm)', 'Stamp Size (25×30 mm)', 'Visa Size (2×2 inch)', 'Driving License Size', 'Other (specify in message)'],
+      },
+      { id: 'quantity', label: 'Number of Photos', type: 'select', required: true, options: ['6 photos', '12 photos', '24 photos', 'Other (specify in message)'] },
+      { id: 'deliveryAddress', label: 'Delivery Address', type: 'textarea', required: true, placeholder: 'Full delivery address with landmark and PIN code' },
+    ],
+  },
+
+  // ─── AI ASSISTANCE ───────────────────────────────────────────
+  {
+    slug: 'ai-assistance',
+    name: 'AI Assistance Services',
+    categoryId: 'ai',
+    description: 'Professional help using modern AI tools — Resume, Assignments, Coding, Translation, and more.',
+    longDescription: 'Leverage the power of modern AI tools with professional guidance. From crafting the perfect resume to solving complex coding problems, writing business letters, translating documents, creating presentations, or generating content — our experts use cutting-edge AI to deliver high-quality results fast. Starting from just ₹49/task.',
+    price: 'From ₹49/task',
+    processingTime: 'Same day – 24 hours',
+    instructions: [
+      'Select the type of AI service you need.',
+      'Describe your requirement in detail in the text box.',
+      'Upload any reference files (optional — PDF, DOCX, images, Excel, ZIP).',
+      'We will use professional AI tools and deliver the output to your email.',
+      'Revision requests are welcome — we want you to be satisfied!',
+    ],
+    requiredDocuments: [
+      {
+        label: 'Reference / Input File',
+        required: false,
+        hint: 'Upload any file for reference — PDF, Word, Excel, image, ZIP (optional)',
+        accept: 'PDF, DOCX, XLSX, JPG, PNG, ZIP',
+        acceptedMimeTypes: [
+          'application/pdf',
+          'image/png',
+          'image/jpeg',
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+          'application/zip',
+          'application/x-zip-compressed',
+        ],
+        acceptAttr: '.pdf,.png,.jpg,.jpeg,.docx,.xlsx,.zip',
+      },
+    ],
+    additionalFields: [
+      {
+        id: 'aiServiceType',
+        label: 'AI Service Required',
+        type: 'select',
+        required: true,
+        options: [
+          'Resume / CV',
+          'Assignment / Homework',
+          'Translation',
+          'Coding Help',
+          'Business Letter / Application',
+          'Content Creation (Blog / Social Media)',
+          'Research / Report',
+          'PPT / Presentation',
+          'Other',
+        ],
+      },
+      {
+        id: 'requirement',
+        label: 'Describe Your Requirement',
+        type: 'textarea',
+        required: true,
+        placeholder: 'Describe in detail what you need — topic, language, word count, format, deadline, or any other specifics...',
       },
     ],
   },

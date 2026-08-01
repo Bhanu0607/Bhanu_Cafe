@@ -7,6 +7,8 @@ export interface ServiceDocument {
   required: boolean;   // if false, it's optional
   hint?: string;       // e.g. "Front & back scan"
   accept?: string;     // e.g. "PDF, JPG" (display hint only)
+  acceptedMimeTypes?: string[]; // e.g. ['application/pdf', 'image/png']
+  acceptAttr?: string; // e.g. ".pdf,.png,.jpg,.jpeg"
 }
 
 export interface ServiceApplication {

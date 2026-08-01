@@ -13,6 +13,10 @@ const ALLOWED_TYPES = new Set([
   'image/png',
   'image/jpeg',
   'image/jpg',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // docx
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // xlsx
+  'application/zip',
+  'application/x-zip-compressed',
 ]);
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;       // 5 MB per file

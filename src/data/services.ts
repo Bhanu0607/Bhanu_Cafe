@@ -3,7 +3,7 @@ import {
   ClipboardList, GraduationCap, Briefcase, Building, School, Landmark,
   Printer, Palette, Copy, Layers, BookOpenCheck, ScanLine, Camera,
   Train, Plane, Bus, Hotel,
-  FileSpreadsheet, Mail, Wallet, Zap, Receipt, Building2
+  FileSpreadsheet, Mail, Wallet, Zap, Receipt, Building2, BrainCircuit
 } from "lucide-react";
 import { ElementType } from "react";
 
@@ -26,9 +26,9 @@ export const serviceCategories: ServiceCategory[] = [
     name: "Government Services",
     icon: Landmark,
     services: [
-      { name: "Aadhaar Update Assistance", icon: CreditCard, description: "Update your Aadhaar details including address, name, mobile number and more." },
       { name: "PAN Card", icon: CreditCard, description: "Apply for new PAN card or make corrections to existing one." },
       { name: "Passport Application", icon: BookOpen, description: "Fresh passport application, renewal, and tatkal services." },
+      { name: "Aadhaar Update", icon: ClipboardList, description: "Update your Aadhaar details including address, name, mobile number, and more." },
       { name: "Voter ID", icon: Vote, description: "New voter ID registration and corrections." },
       { name: "Driving License", icon: Car, description: "Apply for learner's license, permanent DL, and renewals." },
       { name: "Income Certificate", icon: Award, description: "Apply for income certificate from revenue department." },
@@ -86,7 +86,14 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Online Payments", icon: Wallet, description: "Assistance with online payments and transactions." },
       { name: "Utility Bill Payment", icon: Zap, description: "Pay electricity, water, gas, and other utility bills." },
       { name: "GST Assistance", icon: Receipt, description: "GST registration, return filing, and compliance help." },
-      { name: "Banking Assistance", icon: Building2, description: "Online banking setup, account opening assistance." },
+    ],
+  },
+  {
+    id: "ai",
+    name: "AI Assistance Services",
+    icon: BrainCircuit,
+    services: [
+      { name: "AI Assistance Services", icon: BrainCircuit, description: "Professional help using modern AI tools — Resume, Assignments, Coding, Translation, and more." },
     ],
   },
 ];

@@ -80,7 +80,7 @@ export default function Footer() {
           <motion.div variants={fadeInUp} className="space-y-6">
             <h3 className="text-lg font-semibold text-white tracking-wide">Quick Links</h3>
             <ul className="space-y-3">
-              {['Home', 'About', 'Services', 'Pricing', 'Gallery', 'Contact'].map((item) => (
+              {['Home', 'About', 'Services', 'Pricing', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link 
                     href={`#${item.toLowerCase()}`}
@@ -126,15 +126,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <MapPin className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
-                <span>Main Road, City Center,<br />Your City - 000000</span>
+                <span>Gali Number 2 mini sect. road, Behind Bus Stand,<br />Bathinda - 151001</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <Phone className="w-5 h-5 text-primary-500 shrink-0" />
-                <span>+91 99999 99999</span>
+                <span>+91 9780506626</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <Mail className="w-5 h-5 text-primary-500 shrink-0" />
-                <span>info@bhanucybercafe.com</span>
+                <span>bhuveshbansal01@gmail.com</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <Clock className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />

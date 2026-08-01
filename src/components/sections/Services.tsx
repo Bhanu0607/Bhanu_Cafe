@@ -11,7 +11,7 @@ import { serviceCategories, allServices } from '@/data/services';
 const SERVICE_SLUGS: Record<string, string> = {
   'PAN Card': 'pan-card',
   'Passport Application': 'passport',
-  'Aadhaar Update Assistance': 'aadhaar-update',
+  'Aadhaar Update': 'aadhaar-update',
   'Driving License': 'driving-license',
   'Voter ID': 'voter-id',
   'Birth Certificate': 'birth-certificate',
@@ -19,6 +19,12 @@ const SERVICE_SLUGS: Record<string, string> = {
   'Railway Ticket Booking': 'railway-ticket',
   'Flight Booking': 'flight-booking',
   'Resume Creation': 'resume-creation',
+  'Black & White Printing': 'bw-printing',
+  'Color Printing': 'color-printing',
+  'Spiral Binding': 'spiral-binding',
+  'Document Scanning': 'document-scanning',
+  'Passport Size Photos': 'passport-photos',
+  'AI Assistance Services': 'ai-assistance',
 };
 
 const containerVariants = {

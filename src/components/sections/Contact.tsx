@@ -117,7 +117,7 @@ export default function Contact() {
                 Address
               </p>
               <p className="text-gray-900 dark:text-white">
-                Main Road, City Center, Your City - 000000
+                Gali Number 2 mini sect. road, Behind Bus Stand, Bathinda, Punjab 151001
               </p>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Contact() {
               <p className="text-sm text-gray-700 dark:text-gray-400 font-medium mb-1">
                 Phone
               </p>
-              <p className="text-gray-900 dark:text-white">+91 99999 99999</p>
+              <p className="text-gray-900 dark:text-white">+91 97805 06626</p>
             </div>
           </a>
 
@@ -149,13 +149,13 @@ export default function Contact() {
                 Email
               </p>
               <p className="text-gray-900 dark:text-white">
-                info@bhanucybercafe.com
+                bhuveshbansal01@gmail.com
               </p>
             </div>
           </a>
 
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/919780506626"
             target="_blank"
             rel="noreferrer"
             className="glass-card rounded-xl p-4 flex items-center gap-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
@@ -192,11 +192,11 @@ export default function Contact() {
 
           <div className="rounded-xl overflow-hidden w-full h-64 border border-gray-200 dark:border-gray-800">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.54004978016!2d77.0441742618968!3d28.52721814115401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3530900.4014557037!2d70.06553791250002!3d30.204410899999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3917331f09b9506d%3A0x2b5a7de50d759db8!2sMaa%20lakshmi%20book%20center%20and%20photo%20copy!5e0!3m2!1sen!2sin!4v1785584099747!5m2!1sen!2sin"
+              width="600"
+              height="450"
               style={{ border: 0 }}
-              allowFullScreen={false}
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>

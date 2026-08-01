@@ -11,7 +11,6 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import Pricing from "@/components/sections/Pricing";
 import Documents from "@/components/sections/Documents";
 import Testimonials from "@/components/sections/Testimonials";
-import Gallery from "@/components/sections/Gallery";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -30,7 +29,6 @@ export default function Home() {
         <Pricing />
         <Documents />
         <Testimonials />
-        {/* <Gallery /> */}
         <FAQ />
         <Contact />
       </main>

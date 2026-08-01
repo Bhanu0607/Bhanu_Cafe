@@ -326,6 +326,8 @@ export default function ApplicationForm({ service }: ApplicationFormProps) {
                 required={doc.required}
                 hint={doc.hint}
                 accept={doc.accept}
+                acceptedMimeTypes={doc.acceptedMimeTypes}
+                acceptAttr={doc.acceptAttr}
                 uploadedFile={uploadedFiles[doc.label]}
                 onFileSelect={(file, preview) => handleFileSelect(doc.label, file, preview)}
                 onFileRemove={() => handleFileRemove(doc.label)}
