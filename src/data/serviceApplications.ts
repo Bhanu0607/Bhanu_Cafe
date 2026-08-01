@@ -1,0 +1,323 @@
+import { ServiceApplication } from '@/types/application';
+
+export const serviceApplications: ServiceApplication[] = [
+  {
+    slug: 'pan-card',
+    name: 'PAN Card',
+    categoryId: 'government',
+    description: 'Apply for a new PAN Card or make corrections to your existing PAN Card online.',
+    longDescription: 'A Permanent Account Number (PAN) is a ten-character alphanumeric identifier issued by the Income Tax Department. It is mandatory for all financial transactions including opening a bank account, filing income tax returns, and making investments. We handle your complete PAN Card application with government fees included.',
+    price: '₹199',
+    processingTime: '15–20 working days',
+    instructions: [
+      'Fill in all required personal details accurately as per your Aadhaar Card.',
+      'Upload a clear scan/photo of your Aadhaar Card (both sides).',
+      'Upload a recent passport-sized photograph with white background.',
+      'Provide your signature on plain white paper and upload a clear photo of it.',
+      'Our team will process your application and update you via email.',
+    ],
+    requiredDocuments: [
+      { label: 'Aadhaar Card (Front)', required: true, hint: 'Clear scan or photo, front side', accept: 'PDF, JPG, PNG' },
+      { label: 'Aadhaar Card (Back)', required: true, hint: 'Clear scan or photo, back side', accept: 'PDF, JPG, PNG' },
+      { label: 'Passport Size Photo', required: true, hint: 'White background, recent photo', accept: 'JPG, PNG' },
+      { label: 'Signature', required: true, hint: 'On plain white paper, click clear photo', accept: 'JPG, PNG' },
+      { label: 'Date of Birth Proof', required: false, hint: '10th Marksheet or Birth Certificate (if not on Aadhaar)', accept: 'PDF, JPG, PNG' },
+    ],
+  },
+  {
+    slug: 'passport',
+    name: 'Passport Application',
+    categoryId: 'government',
+    description: 'Fresh passport application, renewal, and tatkal services with expert guidance.',
+    longDescription: 'A passport is an essential travel document issued by the Government of India. Whether you are applying for the first time, renewing an expired passport, or need a tatkal (urgent) passport, we provide end-to-end assistance including form filling, document verification, and appointment scheduling guidance.',
+    price: '₹299',
+    processingTime: '30–45 working days',
+    instructions: [
+      'Ensure all documents are in order before filling the form.',
+      'For tatkal applications, mention it in the message box.',
+      'Upload all identity and address proof documents.',
+      'Government passport fees are paid separately at the passport office.',
+      'We will guide you through every step of the process.',
+    ],
+    requiredDocuments: [
+      { label: 'Aadhaar Card', required: true, hint: 'Front and back, clear scan', accept: 'PDF, JPG, PNG' },
+      { label: 'PAN Card', required: true, hint: 'Clear photo or scan', accept: 'PDF, JPG, PNG' },
+      { label: 'Passport Size Photo', required: true, hint: 'White background, 2×2 inches', accept: 'JPG, PNG' },
+      { label: 'Address Proof', required: true, hint: 'Electricity bill / Bank statement (latest 3 months)', accept: 'PDF, JPG, PNG' },
+      { label: 'Date of Birth Proof', required: true, hint: '10th Marksheet or Birth Certificate', accept: 'PDF, JPG, PNG' },
+      { label: 'Old Passport', required: false, hint: 'Required for renewal only — first & last page', accept: 'PDF, JPG, PNG' },
+    ],
+  },
+  {
+    slug: 'aadhaar-update',
+    name: 'Aadhaar Update',
+    categoryId: 'government',
+    description: 'Update your Aadhaar details including address, name, mobile number, and more.',
+    longDescription: 'Keep your Aadhaar Card details current. We assist with updating your name, address, date of birth, mobile number, and other demographic details through the official UIDAI portal. A valid Aadhaar is essential for accessing government services and benefits.',
+    price: '₹149',
+    processingTime: '7–10 working days',
+    instructions: [
+      'Specify what you want to update in the message box (address / name / DOB / mobile).',
+      'Upload your existing Aadhaar Card.',
+      'Upload supporting proof document for the change you need.',
+      'Aadhaar update fees of ₹50 (online) are applicable separately.',
+    ],
+    requiredDocuments: [
+      { label: 'Existing Aadhaar Card', required: true, hint: 'Current Aadhaar card photo or scan', accept: 'PDF, JPG, PNG' },
+      { label: 'Proof of Change', required: true, hint: 'New address proof / name change deed / DOB certificate', accept: 'PDF, JPG, PNG' },
+      { label: 'Identity Proof', required: false, hint: 'PAN / Voter ID / Driving License', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      {
+        id: 'updateType',
+        label: 'What do you want to update?',
+        type: 'select',
+        required: true,
+        options: ['Address', 'Name', 'Date of Birth', 'Mobile Number', 'Email', 'Photo', 'Other'],
+      },
+    ],
+  },
+  {
+    slug: 'driving-license',
+    name: 'Driving License',
+    categoryId: 'government',
+    description: 'Apply for a learner\'s license, permanent DL, or renewal through our expert assistance.',
+    longDescription: 'We assist with all types of driving license applications — Learner\'s License (LL), Permanent Driving License (DL), and DL Renewal. Our team will fill the Sarathi portal forms, verify documents, and guide you through the process.',
+    price: '₹249',
+    processingTime: '30–45 working days',
+    instructions: [
+      'Select the type of license you need in the message box.',
+      'For Permanent DL, upload your existing Learner\'s License.',
+      'Upload Aadhaar Card, age proof, and passport photos.',
+      'Government DL fees are paid separately at the RTO.',
+      'We will schedule your driving test slot and guide you.',
+    ],
+    requiredDocuments: [
+      { label: 'Aadhaar Card', required: true, hint: 'Both sides, clear scan', accept: 'PDF, JPG, PNG' },
+      { label: 'Age Proof', required: true, hint: '10th Marksheet or Birth Certificate', accept: 'PDF, JPG, PNG' },
+      { label: 'Address Proof', required: true, hint: 'Aadhaar / Utility bill / Bank statement', accept: 'PDF, JPG, PNG' },
+      { label: 'Passport Size Photo', required: true, hint: '6 recent photos with white background', accept: 'JPG, PNG' },
+      { label: "Learner's License", required: false, hint: 'Required only for Permanent DL application', accept: 'PDF, JPG, PNG' },
+      { label: 'Medical Certificate (Form 1A)', required: false, hint: 'From a registered medical practitioner', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      {
+        id: 'licenseType',
+        label: 'License Type',
+        type: 'select',
+        required: true,
+        options: ["Learner's License (LL)", 'Permanent Driving License (DL)', 'DL Renewal', 'International DL'],
+      },
+      {
+        id: 'vehicleType',
+        label: 'Vehicle Type',
+        type: 'select',
+        required: true,
+        options: ['Two Wheeler (Motorcycle/Scooter)', 'Four Wheeler (Car/Jeep)', 'Both Two & Four Wheeler', 'Commercial Vehicle'],
+      },
+    ],
+  },
+  {
+    slug: 'voter-id',
+    name: 'Voter ID',
+    categoryId: 'government',
+    description: 'New voter ID registration and corrections to existing voter ID card.',
+    longDescription: 'Your Voter ID (EPIC Card) is a crucial identity document and proof of citizenship for electoral purposes. We assist with fresh voter registration (Form 6), shifting of registration (Form 8A), and corrections (Form 8) through the official Voters\' Service Portal.',
+    price: '₹149',
+    processingTime: '30–60 working days',
+    instructions: [
+      'Select the type of voter ID service you need in the message.',
+      'Upload all identity and address proof documents.',
+      'Voter ID application is free — our fee is for service assistance only.',
+      'You will receive your Voter ID after verification by the Election Office.',
+    ],
+    requiredDocuments: [
+      { label: 'Aadhaar Card', required: true, hint: 'Clear photo or scan', accept: 'PDF, JPG, PNG' },
+      { label: 'Passport Size Photo', required: true, hint: 'White background, recent', accept: 'JPG, PNG' },
+      { label: 'Age Proof', required: true, hint: '10th Marksheet / Birth Certificate / Passport', accept: 'PDF, JPG, PNG' },
+      { label: 'Address Proof', required: true, hint: 'Utility bill / Rent agreement / Bank passbook', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      {
+        id: 'voterService',
+        label: 'Type of Service',
+        type: 'select',
+        required: true,
+        options: ['New Registration (Form 6)', 'Correction in Details (Form 8)', 'Shifting of Registration (Form 8A)', 'Deletion of Name (Form 7)'],
+      },
+    ],
+  },
+  {
+    slug: 'birth-certificate',
+    name: 'Birth Certificate',
+    categoryId: 'government',
+    description: 'Apply for a birth certificate through the municipal corporation or gram panchayat.',
+    longDescription: 'A birth certificate is the first legal document a person needs. It establishes date and place of birth and is required for school admissions, passport, driving license, and other government services. We assist with registration for newborns (within 21 days is free, after that a fee applies) and older birth registrations.',
+    price: '₹199',
+    processingTime: '7–15 working days',
+    instructions: [
+      'For newborns: bring the hospital discharge slip and parents\' Aadhaar.',
+      'For older births (delayed registration): additional affidavit may be required.',
+      'Upload all available documents and we will guide you on missing ones.',
+    ],
+    requiredDocuments: [
+      { label: 'Hospital Birth Record / Discharge Slip', required: false, hint: 'For newborn registration', accept: 'PDF, JPG, PNG' },
+      { label: 'Father\'s Aadhaar Card', required: true, hint: 'Clear photo or scan', accept: 'PDF, JPG, PNG' },
+      { label: 'Mother\'s Aadhaar Card', required: true, hint: 'Clear photo or scan', accept: 'PDF, JPG, PNG' },
+      { label: 'Marriage Certificate', required: false, hint: 'If parents\' marriage is registered', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      {
+        id: 'birthDate',
+        label: 'Date of Birth of Child',
+        type: 'date',
+        required: true,
+      },
+      {
+        id: 'childName',
+        label: 'Full Name of Child',
+        type: 'text',
+        required: true,
+        placeholder: 'Enter the child\'s full name',
+      },
+    ],
+  },
+  {
+    slug: 'income-certificate',
+    name: 'Income Certificate',
+    categoryId: 'government',
+    description: 'Apply for an income certificate from the revenue department for various benefits.',
+    longDescription: 'An income certificate certifies the annual income of a person or family. It is required for scholarship applications, government scheme benefits, fee concessions, and various government services. We assist with application through the e-District portal.',
+    price: '₹149',
+    processingTime: '7–10 working days',
+    instructions: [
+      'Fill all details accurately as per your Aadhaar and Ration Card.',
+      'Mention your annual income in the message box.',
+      'Upload Aadhaar and Ration Card copies.',
+    ],
+    requiredDocuments: [
+      { label: 'Aadhaar Card', required: true, hint: 'Clear scan or photo', accept: 'PDF, JPG, PNG' },
+      { label: 'Ration Card', required: false, hint: 'Front page showing family details', accept: 'PDF, JPG, PNG' },
+      { label: 'Self-Declaration / Affidavit', required: false, hint: 'Income declaration if required in your district', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      {
+        id: 'annualIncome',
+        label: 'Annual Family Income (in ₹)',
+        type: 'text',
+        required: true,
+        placeholder: 'e.g. 150000',
+      },
+      {
+        id: 'purpose',
+        label: 'Purpose of Income Certificate',
+        type: 'select',
+        required: true,
+        options: ['Scholarship Application', 'Government Scheme Benefit', 'Fee Concession', 'Legal Requirement', 'Other'],
+      },
+    ],
+  },
+  {
+    slug: 'railway-ticket',
+    name: 'Railway Ticket Booking',
+    categoryId: 'travel',
+    description: 'Book IRCTC railway tickets for all classes with expert assistance.',
+    longDescription: 'We help you book Indian Railways tickets through IRCTC for all train classes — Sleeper (SL), AC 3-Tier, AC 2-Tier, AC First Class, and General. We also assist with Tatkal bookings for urgent travel.',
+    price: '₹49 service charge',
+    processingTime: 'Instant booking',
+    instructions: [
+      'Provide travel date, origin, destination, and passenger details.',
+      'Upload a valid ID proof for each passenger (required for Tatkal).',
+      'We will confirm booking details via WhatsApp or email.',
+      'Ticket cost + IRCTC charges are additional — paid by you at time of booking.',
+    ],
+    requiredDocuments: [
+      { label: 'ID Proof (Primary Passenger)', required: true, hint: 'Aadhaar / Voter ID / Passport (mandatory for Tatkal)', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      { id: 'fromStation', label: 'From Station', type: 'text', required: true, placeholder: 'e.g. New Delhi (NDLS)' },
+      { id: 'toStation', label: 'To Station', type: 'text', required: true, placeholder: 'e.g. Mumbai Central (BCT)' },
+      { id: 'travelDate', label: 'Travel Date', type: 'date', required: true },
+      { id: 'trainPreference', label: 'Train Name / Number (optional)', type: 'text', required: false, placeholder: 'e.g. Rajdhani Express 12951' },
+      {
+        id: 'classPreference',
+        label: 'Class Preference',
+        type: 'select',
+        required: true,
+        options: ['Sleeper (SL)', 'AC 3-Tier (3A)', 'AC 2-Tier (2A)', 'AC First Class (1A)', 'Chair Car (CC)', 'General (GN)'],
+      },
+      { id: 'passengers', label: 'Number of Passengers', type: 'select', required: true, options: ['1', '2', '3', '4', '5', '6'] },
+    ],
+  },
+  {
+    slug: 'flight-booking',
+    name: 'Flight Booking',
+    categoryId: 'travel',
+    description: 'Book domestic and international flight tickets at competitive prices.',
+    longDescription: 'We search across airlines and booking platforms to find you the best flight deals for domestic and international travel. From economy to business class, we handle the entire booking process and send you confirmed e-tickets.',
+    price: '₹149 service charge',
+    processingTime: 'Instant booking',
+    instructions: [
+      'Provide travel date, origin airport, destination airport, and number of passengers.',
+      'Upload passport for international flights, Aadhaar for domestic flights.',
+      'Ticket cost varies by airline and availability — we will share quotes before booking.',
+    ],
+    requiredDocuments: [
+      { label: 'Passport (for international travel)', required: false, hint: 'First page showing name, DOB, validity', accept: 'PDF, JPG, PNG' },
+      { label: 'Aadhaar / ID Proof (for domestic travel)', required: true, hint: 'Valid government-issued ID', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      { id: 'fromCity', label: 'From City / Airport', type: 'text', required: true, placeholder: 'e.g. Delhi (DEL)' },
+      { id: 'toCity', label: 'To City / Airport', type: 'text', required: true, placeholder: 'e.g. Mumbai (BOM)' },
+      { id: 'departureDate', label: 'Departure Date', type: 'date', required: true },
+      { id: 'returnDate', label: 'Return Date (for round trip)', type: 'date', required: false },
+      { id: 'passengers', label: 'Number of Passengers', type: 'select', required: true, options: ['1', '2', '3', '4', '5', '6'] },
+      { id: 'travelClass', label: 'Cabin Class', type: 'select', required: true, options: ['Economy', 'Business', 'First Class'] },
+    ],
+  },
+  {
+    slug: 'resume-creation',
+    name: 'Resume Creation',
+    categoryId: 'digital',
+    description: 'Professional resume / CV creation with modern templates and ATS-friendly formatting.',
+    longDescription: 'A great resume opens doors to opportunities. Our professional resume writers craft ATS-optimized, visually appealing resumes that stand out. We offer multiple modern templates and tailor content to highlight your strengths for your target job role.',
+    price: '₹149',
+    processingTime: '1–2 working days',
+    instructions: [
+      'Fill in your details in the form below.',
+      'Upload your existing resume if you have one (optional — for reference).',
+      'Mention your target job role or industry in the message box.',
+      'We will create/update your resume and send it via email in PDF and Word format.',
+    ],
+    requiredDocuments: [
+      { label: 'Existing Resume (if any)', required: false, hint: 'Any format — PDF, DOC, image', accept: 'PDF, JPG, PNG' },
+      { label: 'Educational Certificates', required: false, hint: 'For accurate qualification details', accept: 'PDF, JPG, PNG' },
+    ],
+    additionalFields: [
+      {
+        id: 'targetRole',
+        label: 'Target Job Role',
+        type: 'text',
+        required: true,
+        placeholder: 'e.g. Software Developer, Bank PO, Teacher',
+      },
+      {
+        id: 'experienceLevel',
+        label: 'Experience Level',
+        type: 'select',
+        required: true,
+        options: ['Fresher (0 experience)', '1–3 years', '3–5 years', '5–10 years', '10+ years'],
+      },
+    ],
+  },
+];
+
+// Helper: get service by slug
+export function getServiceBySlug(slug: string): ServiceApplication | undefined {
+  return serviceApplications.find((s) => s.slug === slug);
+}
+
+// Helper: get all slugs for static params generation
+export function getAllServiceSlugs(): string[] {
+  return serviceApplications.map((s) => s.slug);
+}

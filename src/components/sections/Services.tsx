@@ -2,9 +2,24 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search } from 'lucide-react';
+import { Search, ArrowRight, Zap } from 'lucide-react';
+import Link from 'next/link';
 import SectionWrapper from '@/components/ui/SectionWrapper';
 import { serviceCategories, allServices } from '@/data/services';
+
+// Slug map for services that have online application forms
+const SERVICE_SLUGS: Record<string, string> = {
+  'PAN Card': 'pan-card',
+  'Passport Application': 'passport',
+  'Aadhaar Update Assistance': 'aadhaar-update',
+  'Driving License': 'driving-license',
+  'Voter ID': 'voter-id',
+  'Birth Certificate': 'birth-certificate',
+  'Income Certificate': 'income-certificate',
+  'Railway Ticket Booking': 'railway-ticket',
+  'Flight Booking': 'flight-booking',
+  'Resume Creation': 'resume-creation',
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -110,17 +125,41 @@ export default function Services() {
                   animate="visible"
                   exit="exit"
                   whileHover={{ y: -4 }}
-                  className="glass-card rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover:border-primary-200 dark:hover:border-primary-800 hover:shadow-lg transition-all duration-300 flex flex-col h-full bg-white/50 dark:bg-slate-900/50"
+                  className="glass-card rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover:border-primary-200 dark:hover:border-primary-800 hover:shadow-lg transition-all duration-300 flex flex-col h-full bg-white/50 dark:bg-slate-900/50 group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center mb-4 shrink-0">
-                    {Icon && <Icon className="w-6 h-6" />}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center shrink-0">
+                      {Icon && <Icon className="w-6 h-6" />}
+                    </div>
+                    {SERVICE_SLUGS[service.name] && (
+                      <span className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 px-2 py-1 rounded-full border border-primary-200/50 dark:border-primary-800/50">
+                        <Zap className="w-2.5 h-2.5" /> Online
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">
                     {service.name}
                   </h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-400 line-clamp-3">
+                  <p className="text-sm text-gray-700 dark:text-gray-400 line-clamp-2 flex-1">
                     {service.description}
                   </p>
+                  <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+                    {SERVICE_SLUGS[service.name] ? (
+                      <Link
+                        href={`/apply/${SERVICE_SLUGS[service.name]}`}
+                        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl gradient-primary text-white text-sm font-semibold hover:opacity-90 transition-all shadow-sm shadow-primary-500/20 group-hover:shadow-primary-500/30"
+                      >
+                        Apply Now <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    ) : (
+                      <a
+                        href="/#contact"
+                        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-primary-200 dark:border-primary-800 text-primary-600 dark:text-primary-400 text-sm font-semibold hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all"
+                      >
+                        Contact Us <ArrowRight className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
                 </motion.div>
               );
             })

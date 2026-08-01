@@ -125,8 +125,9 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-1">
-                <span className="text-2xl font-bold text-primary-600 dark:text-primary-500">Bhanu</span>
-                <span className="text-2xl font-normal text-gray-800 dark:text-gray-200">Cyber</span>
+                <span className="text-lg font-bold text-primary-600 dark:text-primary-500">Bhanu</span>
+                <span className="text-lg font-normal text-gray-800 dark:text-gray-200">Cyber</span>
+                <span className="text-lg font-normal text-gray-800 dark:text-gray-200">Cafe</span>
               </Link>
             </div>
 
